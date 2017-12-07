@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u9W-Pl-Nbp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="URLRouter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FQb-RL-cuA"/>
+                        <viewControllerLayoutGuide type="bottom" id="cPG-dY-gea"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gdL-yP-gqW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="403"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lZh-pK-wsg">
+                                <rect key="frame" x="16" y="467" width="343" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gdL-yP-gqW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0uV-xU-RaM"/>
+                            <constraint firstItem="lZh-pK-wsg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="48D-eN-Jgi"/>
+                            <constraint firstItem="cPG-dY-gea" firstAttribute="top" secondItem="lZh-pK-wsg" secondAttribute="bottom" id="9a3-5y-4sB"/>
+                            <constraint firstItem="cPG-dY-gea" firstAttribute="top" secondItem="gdL-yP-gqW" secondAttribute="bottom" constant="200" id="HRS-lR-tmC"/>
+                            <constraint firstItem="gdL-yP-gqW" firstAttribute="top" secondItem="FQb-RL-cuA" secondAttribute="bottom" id="Lyv-6F-fX8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lZh-pK-wsg" secondAttribute="trailing" id="gMI-yL-OH3"/>
+                            <constraint firstItem="lZh-pK-wsg" firstAttribute="top" secondItem="gdL-yP-gqW" secondAttribute="bottom" id="ifP-rQ-GG9"/>
+                            <constraint firstAttribute="trailing" secondItem="gdL-yP-gqW" secondAttribute="trailing" id="x9R-T0-50l"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OP4-Ju-Bfm"/>
+                    <connections>
+                        <outlet property="tableView" destination="gdL-yP-gqW" id="YT6-UY-iEl"/>
+                        <outlet property="textView" destination="lZh-pK-wsg" id="6we-le-lNr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hAu-LI-5ww">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u9W-Pl-Nbp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AaV-oX-0ZG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="q75-jc-MUd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UhC-M8-McX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="133"/>
+        </scene>
+    </scenes>
+</document>
