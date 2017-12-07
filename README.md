@@ -80,15 +80,15 @@ context: nil
 通过正则表达式匹配 URL
 >URLMatcher with regular expression
 
-1."scheme://user/Tommy?age=22&sex=boy"  ->  "scheme://user/\\w+\\?age=\\d+&sex=\\w+"
+1.scheme://user/Tommy?age=22&sex=boy  ->  scheme://user/\\w+\\?age=\\d+&sex=\\w+
 * match succeeds
 * parameters: ["age": "22", "sex": "boy"]
 
-2."scheme://user/123"  ->  "scheme://user/\\w+"
+2.scheme://user/123  ->  scheme://user/\\w+
 * match fails
 
-**通过以下代码改变匹配规则
->**How to use RegexURLMatcher:
+** 通过以下代码改变匹配规则
+>** How to use RegexURLMatcher:
 ```swift
 URLRouter.shared.urlMatcher = .regex
 ```
