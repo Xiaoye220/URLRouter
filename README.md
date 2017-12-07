@@ -11,25 +11,26 @@ pod 'YFURLRouter'
 
 ### 1. DefaultURLMatcher
 
-matching rules:
+默认的匹配规则:
+>matching rules:
 
-1."scheme://user/Tommy"  ->  "scheme://user/<name>"
+1.scheme://user/Tommy  ->  scheme://user/<name>
 * match succeeds
 * parameters: ["name": "Tommy"]
 
-2."scheme://user/Tommy/22"  ->  "scheme://user/<name>/<age>"
+2.scheme://user/Tommy/22  ->  scheme://user/<name>/<age>
 * match succeeds
 * parameters: ["name": "Tommy", "age": "22"]
 
-3."scheme://user/Tommy?age=22&sex=boy"  ->  "scheme://user/<name>"
+3.scheme://user/Tommy?age=22&sex=boy  ->  scheme://user/<name>
 * match succeeds
 * parameters: ["name": "Tommy", "age": "22", "sex": "boy"]
 
-4."scheme://user/Tommy?age=22&sex=boy"  ->  "scheme://user/<name>?<age,sex>"
+4.scheme://user/Tommy?age=22&sex=boy  ->  scheme://user/<name>?<age,sex>
 * match succeeds
 * parameters: ["name": "Tommy", "age": "22", "sex": "boy"]
 
-5."scheme://user/Tommy"  ->  "scheme://user/<name>?<age,sex>"
+5.scheme://user/Tommy  ->  scheme://user/<name>?<age,sex>
 * match fails
 
 #### Example:
@@ -76,7 +77,8 @@ context: nil
 ```
 
 ### 2.RegexURLMatcher
-URLMatcher with regular expression
+通过正则表达式匹配 URL
+>URLMatcher with regular expression
 
 1."scheme://user/Tommy?age=22&sex=boy"  ->  "scheme://user/\\w+\\?age=\\d+&sex=\\w+"
 * match succeeds
@@ -85,12 +87,13 @@ URLMatcher with regular expression
 2."scheme://user/123"  ->  "scheme://user/\\w+"
 * match fails
 
-how to use RegexURLMatcher:
+**通过以下代码改变匹配规则
+>**How to use RegexURLMatcher:
 ```swift
 URLRouter.shared.urlMatcher = .regex
 ```
 
-####Example
+#### example
 
 ```swift
 let registerURL = "URLRouter://user/\\w+\\?age=\\d+&sex=\\w+"
@@ -107,7 +110,10 @@ context: nil
 */
 ```
 
-### 3.Match With Context
+### 3.Route With Context
+
+路由的时候带上自定义内容
+
 ```swift
 let registerURL = "URLRouter://user/<name>"
 let openURL     = "URLRouter://user/Tommy"
@@ -121,7 +127,9 @@ parameters: ["name": "Tommy"]
 context: Person(name: "Xixi")
 */
 ```
-###  4.Match Object
+### 4.Route Object
+
+URL 绑定 Object，路由时返回一个 Object
 
 ```swift
 let registerURL = "URLRouter://object/user/<name>"
@@ -139,9 +147,10 @@ user: Person(name: "Tommy")
 */
 ```
 
-### 5.PushViewController
+### 5.Push ViewController
 
-#### (1) implementation with URLHandle
+#### (1) 直接在 Handle 中实现
+>#### (1) implementation with URLHandle
 ```swift
 let registerURL = "URLRouter://pushViewController"
 let openURL     = "URLRouter://pushViewController?backgroudColor=red"
@@ -161,8 +170,8 @@ parameters: ["backgroudColor": "red"]
 context: nil
 */
 ```
-
-#### (2) implementation with Object
+#### (2) 路由得到 ViewController 再 push
+>#### (2) implementation with Object
 ```swift
 let registerURL = "URLRouter://viewControler"
 let openURL     = "URLRouter://viewControler?backgroudColor=blue"
@@ -181,7 +190,11 @@ if let viewController: UIViewController = URLRouter.shared.object(for: openURL) 
 ```
 
 ### 6.CustomURLMatcher
-Using a custom matching rule.Your custom URLMatcher should implement URLMatcherType protocol and set URLRouter.shared.urlMatcher with it.
+
+使用自定义的匹配规则匹配 URL 进行路由。只要让 class 实现 URLMatcherType 协议，并通过 ```URLRouter.shared.urlMatcher = .custom(...)``` 设置它。
+
+>Using a custom matching rule.Your custom URLMatcher should implement URLMatcherType protocol and using ```URLRouter.shared.urlMatcher = .custom(...)``` set it.
+
 ```swift
 class CustomURLMatcher: URLMatcherType {
     func match(_ url: URLType, from registeredURLs: [URLType]) -> URLMatchResult {
