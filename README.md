@@ -1,3 +1,8 @@
+![pod](https://img.shields.io/badge/pod-YFURLRouter-brightgreen.svg)
+![iOS](https://img.shields.io/badge/iOS-8.0-green.svg)
+![lisence](https://img.shields.io/badge/license-MIT-orange.svg)
+![swift](https://img.shields.io/badge/swift-4.0-red.svg)
+
 # URLRouter
 
 ## CocoaPods
