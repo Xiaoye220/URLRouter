@@ -19,7 +19,7 @@ pod 'YFURLRouter'
 默认的匹配规则:
 >matching rules:
 
-1.scheme://user/Tommy  ->  scheme://user/<name>
+1.scheme://user/Tommy  ->  scheme://user/&lt;name&gt;
 * match succeeds
 * parameters: ["name": "Tommy"]
 
