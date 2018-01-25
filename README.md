@@ -23,19 +23,19 @@ pod 'YFURLRouter'
 * match succeeds
 * parameters: ["name": "Tommy"]
 
-2.scheme://user/Tommy/22  ->  scheme://user/<name>/<age>
+2.scheme://user/Tommy/22  ->  scheme://user/&lt;name&gt;/&lt;age&gt;
 * match succeeds
 * parameters: ["name": "Tommy", "age": "22"]
 
-3.scheme://user/Tommy?age=22&sex=boy  ->  scheme://user/<name>
+3.scheme://user/Tommy?age=22&sex=boy  ->  scheme://user/&lt;name&gt;
 * match succeeds
 * parameters: ["name": "Tommy", "age": "22", "sex": "boy"]
 
-4.scheme://user/Tommy?age=22&sex=boy  ->  scheme://user/<name>?<age,sex>
+4.scheme://user/Tommy?age=22&sex=boy  ->  scheme://user/&lt;name&gt;?&lt;age,sex&gt;
 * match succeeds
 * parameters: ["name": "Tommy", "age": "22", "sex": "boy"]
 
-5.scheme://user/Tommy  ->  scheme://user/<name>?<age,sex>
+5.scheme://user/Tommy  ->  scheme://user/&lt;name&gt;?&lt;age,sex&gt;
 * match fails
 
 #### Example:
